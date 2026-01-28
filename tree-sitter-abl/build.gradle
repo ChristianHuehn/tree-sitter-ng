@@ -1,0 +1,10 @@
+tasks.named('downloadSource') {
+    url = "https://github.com/usagi-coffee/tree-sitter-abl/archive/refs/tags/v${version}.zip"
+}
+
+tasks.named('buildNative') {
+    // Add src directory to include path for tree_sitter headers
+    additionalIncludeDirs = [
+        project.layout.buildDirectory.dir("tree-sitter-abl/tree-sitter-abl-${version}/src").get()
+    ]
+}
